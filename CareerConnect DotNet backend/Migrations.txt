@@ -1,0 +1,11 @@
+
+
+
+
+Update-Database -Migration "InitialCreate"
+
+Update-Database -Migration "second-migration"
+
+Update-Database -Migration "ThirdMigration"
+
+Update-Database -Migration "FourthMigration"
