@@ -109,6 +109,42 @@ namespace CareerConnect.Migrations
                     b.ToTable("Jobs");
                 });
 
+            modelBuilder.Entity("CareerConnect.Models.Project", b =>
+                {
+                    b.Property<int>("ProjectId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("ProjectId"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("JobSeekerId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProjectName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Technologies")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("ProjectId");
+
+                    b.HasIndex("JobSeekerId");
+
+                    b.ToTable("Projects");
+                });
+
             modelBuilder.Entity("Employer", b =>
                 {
                     b.Property<int>("EmployerId")
@@ -153,12 +189,7 @@ namespace CareerConnect.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Projects")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.Property<string>("Resume")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Skills")
@@ -240,6 +271,17 @@ namespace CareerConnect.Migrations
                     b.Navigation("Employer");
                 });
 
+            modelBuilder.Entity("CareerConnect.Models.Project", b =>
+                {
+                    b.HasOne("JobSeeker", "JobSeeker")
+                        .WithMany("Projects")
+                        .HasForeignKey("JobSeekerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("JobSeeker");
+                });
+
             modelBuilder.Entity("Employer", b =>
                 {
                     b.HasOne("User", "User")
@@ -275,6 +317,8 @@ namespace CareerConnect.Migrations
             modelBuilder.Entity("JobSeeker", b =>
                 {
                     b.Navigation("Applications");
+
+                    b.Navigation("Projects");
                 });
 
             modelBuilder.Entity("User", b =>

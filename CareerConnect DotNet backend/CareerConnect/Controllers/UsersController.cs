@@ -70,9 +70,7 @@ public class UsersController : ControllerBase
                 FirstName = registrationDto.JobSeeker.FirstName,
                 LastName = registrationDto.JobSeeker.LastName,
                 Description = registrationDto.JobSeeker.Description,
-                Projects = registrationDto.JobSeeker.Projects,
                 Skills = registrationDto.JobSeeker.Skills,
-                Resume = registrationDto.JobSeeker.Resume,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
                 User = user

@@ -10,6 +10,7 @@ public class JobPortalContext : DbContext
     public DbSet<Employer> Employers { get; set; }
     public DbSet<Job> Jobs { get; set; }
     public DbSet<Application> Applications { get; set; }
+    public DbSet<Project> Projects { get; set; } // Add DbSet for Projects
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -50,5 +51,11 @@ public class JobPortalContext : DbContext
             .HasOne(a => a.JobSeeker)
             .WithMany(js => js.Applications)
             .HasForeignKey(a => a.JobSeekerId);
+
+        // Configure the relationship between JobSeeker and Project
+        modelBuilder.Entity<Project>()
+            .HasOne(p => p.JobSeeker)
+            .WithMany(js => js.Projects)
+            .HasForeignKey(p => p.JobSeekerId);
     }
 }

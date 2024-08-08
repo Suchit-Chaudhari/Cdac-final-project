@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\Desktop\\final project\\CareerConnect\\CareerConnect\\CareerConnect.csproj": {}
+    "C:\\Users\\HP\\Desktop\\final project\\Cdac-final-project\\CareerConnect DotNet backend\\CareerConnect\\CareerConnect.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\Desktop\\final project\\CareerConnect\\CareerConnect\\CareerConnect.csproj": {
+    "C:\\Users\\HP\\Desktop\\final project\\Cdac-final-project\\CareerConnect DotNet backend\\CareerConnect\\CareerConnect.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Desktop\\final project\\CareerConnect\\CareerConnect\\CareerConnect.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\Desktop\\final project\\Cdac-final-project\\CareerConnect DotNet backend\\CareerConnect\\CareerConnect.csproj",
         "projectName": "CareerConnect",
-        "projectPath": "C:\\Users\\HP\\Desktop\\final project\\CareerConnect\\CareerConnect\\CareerConnect.csproj",
+        "projectPath": "C:\\Users\\HP\\Desktop\\final project\\Cdac-final-project\\CareerConnect DotNet backend\\CareerConnect\\CareerConnect.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Desktop\\final project\\CareerConnect\\CareerConnect\\obj\\",
+        "outputPath": "C:\\Users\\HP\\Desktop\\final project\\Cdac-final-project\\CareerConnect DotNet backend\\CareerConnect\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
