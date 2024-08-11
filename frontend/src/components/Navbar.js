@@ -6,7 +6,6 @@ const Navbar = () => {
     const [profilePic, setProfilePic] = useState(null);
     const user = JSON.parse(localStorage.getItem('user'));
     const updateProfilePic = () => {
-        
         setProfilePic(user && user.profilePictureUrl ? user.profilePictureUrl : null);
     };
 

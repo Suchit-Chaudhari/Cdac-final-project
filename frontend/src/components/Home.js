@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const HomePage = () => {
+  
+
   const styles = {
     hero: {
       background: 'url(/images/banner2.jpg) no-repeat center center',
@@ -37,7 +39,7 @@ const HomePage = () => {
       padding: '20px 0'
     }
   };
-
+  
   return (
     <div>
       <div style={styles.hero}>
@@ -65,7 +67,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-
+      
       <footer style={styles.footer}>
         <div className="container">
           <p>&copy; 2024 CareerConnect. All rights reserved.</p>

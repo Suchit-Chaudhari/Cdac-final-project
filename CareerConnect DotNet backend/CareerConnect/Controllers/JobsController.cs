@@ -1,6 +1,7 @@
 ﻿
 
 using CareerConnect.Models;
+using CareerConnect.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -97,16 +98,31 @@ namespace CareerConnect.Controllers
         }
 
         [HttpPost("Create")]
-        public async Task<ActionResult<Job>> CreateJob([FromBody] Job job)
+        public async Task<ActionResult<Job>> CreateJob([FromBody]  JobCreateDto jobDto)
         {
             if (ModelState.IsValid)
             {
+                var job = new Job
+                {
+                    EmployerId = jobDto.EmployerId,
+                    JobTitle = jobDto.JobTitle,
+                    JobDescription = jobDto.JobDescription,
+                    Location = jobDto.Location,
+                    Salary = jobDto.Salary,
+                    JobType = jobDto.JobType,
+                    ExperienceLevel = jobDto.ExperienceLevel,
+                    Industry = jobDto.Industry,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now
+                };
+
                 _context.Jobs.Add(job);
                 await _context.SaveChangesAsync();
                 return CreatedAtAction(nameof(GetJobById), new { id = job.JobId }, job);
             }
             return BadRequest(ModelState);
         }
+
 
         [HttpPut("Edit/{id}")]
         public async Task<IActionResult> EditJob(int id, [FromBody] Job job)
