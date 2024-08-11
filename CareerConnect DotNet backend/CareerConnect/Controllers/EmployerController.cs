@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CareerConnect.DTO;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace CareerConnect.Controllers
@@ -34,14 +35,27 @@ namespace CareerConnect.Controllers
         }
 
         [HttpPut("Update/{id}")]
-        public async Task<IActionResult> PutEmployer(int id, Employer employer)
+        public async Task<IActionResult> PutEmployer(int id, [FromBody] EmployerUpdateDto employerDto)
         {
-            if (id != employer.EmployerId)
+            var employer = await _context.Employers.FindAsync(id);
+            if (employer == null)
             {
-                return BadRequest();
+                return NotFound();
+            }
+
+            // Update only the fields provided in the DTO
+            if (!string.IsNullOrEmpty(employerDto.CompanyName))
+            {
+                employer.CompanyName = employerDto.CompanyName;
+            }
+
+            if (!string.IsNullOrEmpty(employerDto.CompanyDescription))
+            {
+                employer.CompanyDescription = employerDto.CompanyDescription;
             }
 
             employer.UpdatedAt = DateTime.Now;
+
             _context.Entry(employer).State = EntityState.Modified;
 
             try
