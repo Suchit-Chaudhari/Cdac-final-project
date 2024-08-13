@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.OpenApi.Models;
 
 namespace CareerConnect
@@ -25,6 +26,7 @@ namespace CareerConnect
 
             builder.Services.AddDbContext<JobPortalContext>(options =>
                 options.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 37))));
+            
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
@@ -41,12 +43,18 @@ namespace CareerConnect
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            
             app.UseRouting();
 
             app.UseCors("AllowEverything");
 
             app.UseHttpsRedirection();
+            //app.UseStaticFiles(); // Serves files from wwwroot by default
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(builder.Environment.ContentRootPath, "uploads")),
+                RequestPath = "/uploads"
+            });
             app.UseAuthorization();
 
             app.MapControllers();

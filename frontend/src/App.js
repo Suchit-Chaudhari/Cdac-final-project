@@ -5,6 +5,9 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
 import HomePage from './components/Home';
+import About from './pages/About';
+import ContactUs from './pages/Contact';
+import JobsPage from './pages/JobsPage';
 
 function App() {
   return (
@@ -14,6 +17,9 @@ function App() {
           <Navbar />
         
           <Routes>
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/jobs" element={<JobsPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/" element={<HomePage />} />
@@ -23,12 +29,6 @@ function App() {
   );
 }
 
-function Home() {
-  return (
-    <div>
-      <h1>Welcome to the Home Page</h1>
-    </div>
-  );
-}
+
 
 export default App;

@@ -6,16 +6,20 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using CareerConnect.DTO;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Hosting.Internal;
 
 [Route("api/users")]
 [ApiController]
 public class UsersController : ControllerBase
 {
     private readonly JobPortalContext _context;
-
-    public UsersController(JobPortalContext context)
+    private readonly IWebHostEnvironment _hostingEnvironment;
+    public UsersController(JobPortalContext context, IWebHostEnvironment hostingEnvironment)
     {
         _context = context;
+        _hostingEnvironment = hostingEnvironment;
     }
 
     // GET: api/users/getall
@@ -142,7 +146,6 @@ public class UsersController : ControllerBase
         return Ok(responseDto);
     }
 
-    // POST: api/users/upload-profile-picture/{id}
     [HttpPost("upload-profile-picture/{id}")]
     public async Task<IActionResult> UploadProfilePicture(int id, IFormFile profilePicture)
     {
@@ -155,8 +158,9 @@ public class UsersController : ControllerBase
         if (profilePicture != null && profilePicture.Length > 0)
         {
             // Define the directory and file paths
-            var uploadsDirectory = Path.Combine("uploads", "profile_pictures");
-            var filePath = Path.Combine(uploadsDirectory, profilePicture.FileName);
+            var uploadsDirectory = Path.Combine(Directory.GetCurrentDirectory(), "uploads", "profile_pictures");
+            var fileName = $"{Guid.NewGuid()}_{profilePicture.FileName}";
+            var filePath = Path.Combine(uploadsDirectory, fileName);
 
             // Check if the directory exists, if not, create it
             if (!Directory.Exists(uploadsDirectory))
@@ -170,8 +174,9 @@ public class UsersController : ControllerBase
                 await profilePicture.CopyToAsync(stream);
             }
 
-            // Update the user's profile picture path
-            user.ProfilePicture = filePath;
+            // Update the user's profile picture path with a relative URL or absolute file path
+            var profilePictureUrl = Path.Combine("uploads", "profile_pictures", fileName);
+            user.ProfilePicture = profilePictureUrl; // or store filePath if you prefer an absolute path
             user.UpdatedAt = DateTime.Now;
 
             _context.Entry(user).State = EntityState.Modified;
@@ -180,6 +185,21 @@ public class UsersController : ControllerBase
 
         return Ok();
     }
+
+
+    [HttpGet("{id}/profile-picture")]
+    public async Task<IActionResult> GetUserProfilePicture(int id)
+    {
+        var user = await _context.Users.FindAsync(id);
+        if (user == null)
+        {
+            return NotFound();
+        }
+
+        // Ensure the URL returned is correctly formatted
+        return Ok(new { ProfilePictureUrl = $"/uploads/profile_pictures/{user.ProfilePicture}" });
+    }
+
 
 
     // PUT: api/users/update/{id}

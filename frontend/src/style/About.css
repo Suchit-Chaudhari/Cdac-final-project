@@ -1,0 +1,125 @@
+/* Overall Section Styling */
+.team-section {
+    padding: 60px 0;
+    background: linear-gradient(135deg, #f0f4ff, #d9e8ff);
+    text-align: center;
+}
+
+/* Section Title Styling */
+.team-section h1 {
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    color: #003366;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.team-section h1::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background: #007bff;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+/* Card Styling */
+.card {
+    margin: 20px;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1 1 20%;
+    background-color: #ffffff;
+}
+
+.card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Image Styling */
+.card img {
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+/* Card Body Styling */
+.card-body {
+    padding: 20px;
+}
+
+/* Title Styling */
+.card-title {
+    font-size: 1.5rem;
+    margin-top: 15px;
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* Text Styling */
+.card-text {
+    font-size: 1rem;
+    color: #000000;
+   
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+/* Optional Additional Text Styling */
+.card-text1 {
+    color: #f51010;
+    
+    font-style: italic;
+}
+
+/* Team Row Styling */
+.team-row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 20px;
+    scrollbar-width: thin;
+    scrollbar-color: #007bff #ffffff;
+}
+
+/* Custom Scrollbar for WebKit Browsers */
+.team-row::-webkit-scrollbar {
+    height: 8px;
+}
+
+.team-row::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+.team-row::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    border-radius: 4px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 90%;
+        margin: 20px auto;
+    }
+
+    .card img {
+        height: 300px;
+    }
+
+    .team-section h1 {
+        font-size: 2rem;
+    }
+}
