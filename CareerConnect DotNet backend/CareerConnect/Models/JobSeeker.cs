@@ -10,7 +10,7 @@ public class JobSeeker
     public string? Resume { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.Now;
     public DateTime UpdatedAt { get; set; } = DateTime.Now;
-    public User User { get; set; }
-    public ICollection<Application> Applications { get; set; } // Initialize or set to null as needed
-    public ICollection<Project> Projects { get; set; } // New navigation property
+    public User? User { get; set; }
+    public ICollection<Application>? Applications { get; set; } // Initialize or set to null as needed
+    public ICollection<Project>? Projects { get; set; } // New navigation property
 }
