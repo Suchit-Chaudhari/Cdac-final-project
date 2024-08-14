@@ -13,6 +13,6 @@ namespace CareerConnect.Models
         public DateTime EndDate { get; set; }
 
         // Navigation property
-        public JobSeeker JobSeeker { get; set; }
+        public JobSeeker? JobSeeker { get; set; }
     }
 }
