@@ -13,7 +13,7 @@
         public string Industry { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
-        public Employer Employer { get; set; }
-        public ICollection<Application> Applications { get; set; }
+        public Employer? Employer { get; set; }
+        public ICollection<Application>? Applications { get; set; }
     }
 }

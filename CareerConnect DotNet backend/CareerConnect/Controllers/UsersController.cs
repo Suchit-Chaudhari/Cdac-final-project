@@ -9,6 +9,10 @@ using CareerConnect.DTO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Hosting.Internal;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 [Route("api/users")]
 [ApiController]
@@ -16,10 +20,13 @@ public class UsersController : ControllerBase
 {
     private readonly JobPortalContext _context;
     private readonly IWebHostEnvironment _hostingEnvironment;
-    public UsersController(JobPortalContext context, IWebHostEnvironment hostingEnvironment)
+    private readonly IConfiguration _configuration;
+
+    public UsersController(JobPortalContext context, IWebHostEnvironment hostingEnvironment, IConfiguration configuration)
     {
         _context = context;
         _hostingEnvironment = hostingEnvironment;
+        _configuration = configuration;
     }
 
     // GET: api/users/getall
@@ -134,13 +141,31 @@ public class UsersController : ControllerBase
             return Unauthorized("Invalid email or password.");
         }
 
-        // Create response DTO
+        // Create JWT token
+        var claims = new[]
+        {
+        new Claim(JwtRegisteredClaimNames.Sub, user.Email),
+        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+        new Claim(ClaimTypes.Role, user.Role)
+    };
+
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("YourVerySuperDuperVerySecretKey123"));
+        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+        var token = new JwtSecurityToken(
+            issuer: _configuration["Jwt:Issuer"],
+            audience: _configuration["Jwt:Audience"],
+            claims: claims,
+            expires: DateTime.Now.AddMinutes(30),
+            signingCredentials: creds);
+
         var responseDto = new UserSignInResponseDto
         {
             UserId = user.UserId,
             Email = user.Email,
             ProfilePictureUrl = user.ProfilePicture,
-            Role = user.Role
+            Role = user.Role,
+            Token = new JwtSecurityTokenHandler().WriteToken(token)
         };
 
         return Ok(responseDto);
@@ -265,7 +290,7 @@ public class UsersController : ControllerBase
 
         return NoContent();
     }
-
+    
     private bool UserExists(int id)
     {
         return _context.Users.Any(e => e.UserId == id);

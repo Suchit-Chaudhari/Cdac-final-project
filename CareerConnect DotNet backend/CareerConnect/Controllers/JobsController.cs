@@ -1,14 +1,14 @@
-﻿
-
-using CareerConnect.Models;
+﻿using CareerConnect.Models;
 using CareerConnect.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CareerConnect.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]  // Apply authorization to the entire controller
     public class JobsController : ControllerBase
     {
         private readonly JobPortalContext _context;
@@ -19,12 +19,14 @@ namespace CareerConnect.Controllers
         }
 
         [HttpGet("GetAll")]
+        [Authorize(Roles = "Admin,JobSeeker,Employer")]  // All roles can view all jobs
         public async Task<ActionResult<IEnumerable<Job>>> GetAllJobs()
         {
             return await _context.Jobs.ToListAsync();
         }
 
         [HttpGet("GetById/{id}")]
+        [Authorize(Roles = "Admin,JobSeeker,Employer")]  // All roles can view job by ID
         public async Task<ActionResult<Job>> GetJobById(int id)
         {
             var job = await _context.Jobs.FindAsync(id);
@@ -38,6 +40,7 @@ namespace CareerConnect.Controllers
         }
 
         [HttpGet("GetByEmployerId/{employerId}")]
+        [Authorize(Roles = "Admin,Employer")]  // Only Admins and Employers can view jobs by Employer ID
         public async Task<ActionResult<IEnumerable<Job>>> GetJobsByEmployerId(int employerId)
         {
             var jobs = await _context.Jobs
@@ -53,6 +56,7 @@ namespace CareerConnect.Controllers
         }
 
         [HttpGet("Filter")]
+        [Authorize(Roles = "Admin,JobSeeker,Employer")]  // All roles can filter jobs
         public async Task<ActionResult<IEnumerable<Job>>> FilterJobs([FromQuery] JobFilterModel filters)
         {
             var query = _context.Jobs.AsQueryable();
@@ -98,7 +102,8 @@ namespace CareerConnect.Controllers
         }
 
         [HttpPost("Create")]
-        public async Task<ActionResult<Job>> CreateJob([FromBody]  JobCreateDto jobDto)
+        [Authorize(Roles = "Admin,Employer")]  // Only Admins and Employers can create jobs
+        public async Task<ActionResult<Job>> CreateJob([FromBody] JobCreateDto jobDto)
         {
             if (ModelState.IsValid)
             {
@@ -123,8 +128,8 @@ namespace CareerConnect.Controllers
             return BadRequest(ModelState);
         }
 
-
         [HttpPut("Edit/{id}")]
+        [Authorize(Roles = "Admin,Employer")]  // Only Admins and Employers can edit jobs
         public async Task<IActionResult> EditJob(int id, [FromBody] Job job)
         {
             if (id != job.JobId)
@@ -154,6 +159,7 @@ namespace CareerConnect.Controllers
         }
 
         [HttpDelete("Delete/{id}")]
+        [Authorize(Roles = "Admin,Employer")]  // Only Admins and Employers can delete jobs
         public async Task<IActionResult> DeleteJob(int id)
         {
             var job = await _context.Jobs.FindAsync(id);

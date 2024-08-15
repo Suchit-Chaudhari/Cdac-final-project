@@ -1,11 +1,13 @@
 ﻿using CareerConnect.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CareerConnect.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]  // Apply authorization to the entire controller
     public class ApplicationsController : ControllerBase
     {
         private readonly JobPortalContext _context;
@@ -16,12 +18,14 @@ namespace CareerConnect.Controllers
         }
 
         [HttpGet("GetAll")]
+        [Authorize(Roles = "Admin,Employer")]  // Only Admins and Employers can view all applications
         public async Task<ActionResult<IEnumerable<Application>>> GetAllApplications()
         {
             return await _context.Applications.ToListAsync();
         }
 
         [HttpGet("GetById/{id}")]
+        [Authorize(Roles = "Admin,JobSeeker,Employer")]  // All roles can view applications by ID
         public async Task<ActionResult<Application>> GetApplicationById(int id)
         {
             var application = await _context.Applications.FindAsync(id);
@@ -35,6 +39,7 @@ namespace CareerConnect.Controllers
         }
 
         [HttpPut("Update/{id}")]
+        [Authorize(Roles = "Admin,Employer")]  // Only Admins and Employers can update applications
         public async Task<IActionResult> UpdateApplication(int id, Application application)
         {
             if (id != application.ApplicationId)
@@ -64,6 +69,7 @@ namespace CareerConnect.Controllers
         }
 
         [HttpPost("Create")]
+        [Authorize(Roles = "Admin,JobSeeker,Employer")]  // All roles can create applications
         public async Task<ActionResult<Application>> CreateApplication(Application application)
         {
             _context.Applications.Add(application);
@@ -73,6 +79,7 @@ namespace CareerConnect.Controllers
         }
 
         [HttpDelete("Delete/{id}")]
+        [Authorize(Roles = "Admin,Employer")]  // Only Admins and Employers can delete applications
         public async Task<IActionResult> DeleteApplication(int id)
         {
             var application = await _context.Applications.FindAsync(id);
@@ -88,6 +95,7 @@ namespace CareerConnect.Controllers
         }
 
         [HttpGet("GetByJobSeekerId/{jobSeekerId}")]
+        [Authorize(Roles = "Admin,JobSeeker")]  // Admins and JobSeekers can view applications by JobSeeker ID
         public async Task<ActionResult<IEnumerable<Application>>> GetApplicationsByJobSeekerId(int jobSeekerId)
         {
             var applications = await _context.Applications
@@ -103,6 +111,7 @@ namespace CareerConnect.Controllers
         }
 
         [HttpGet("GetByJobId/{jobId}")]
+        [Authorize(Roles = "Admin,Employer")]  // Admins and Employers can view applications by Job ID
         public async Task<ActionResult<IEnumerable<Application>>> GetApplicationsByJobId(int jobId)
         {
             var applications = await _context.Applications
@@ -118,6 +127,7 @@ namespace CareerConnect.Controllers
         }
 
         [HttpPut("UpdateStatus/{id}")]
+        [Authorize(Roles = "Admin,Employer")]  // Only Admins and Employers can update application status
         public async Task<IActionResult> UpdateApplicationStatus(int id, [FromBody] string status)
         {
             var application = await _context.Applications.FindAsync(id);

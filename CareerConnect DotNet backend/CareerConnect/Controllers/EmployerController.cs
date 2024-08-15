@@ -1,11 +1,13 @@
 ﻿using CareerConnect.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CareerConnect.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]  // Apply authorization to the entire controller
     public class EmployersController : ControllerBase
     {
         private readonly JobPortalContext _context;
@@ -16,12 +18,14 @@ namespace CareerConnect.Controllers
         }
 
         [HttpGet("GetAll")]
+        [Authorize(Roles = "Admin,JobSeeker")]  // Only Admins and JobSeekers can view all employers
         public async Task<ActionResult<IEnumerable<Employer>>> GetEmployers()
         {
             return await _context.Employers.ToListAsync();
         }
 
         [HttpGet("GetById/{id}")]
+        [Authorize(Roles = "Admin,JobSeeker,Employer")]  // All roles can view employer by ID
         public async Task<ActionResult<Employer>> GetEmployer(int id)
         {
             var employer = await _context.Employers.FindAsync(id);
@@ -35,6 +39,7 @@ namespace CareerConnect.Controllers
         }
 
         [HttpPut("Update/{id}")]
+        [Authorize(Roles = "Admin,Employer")]  // Only Admins and Employers can update employer details
         public async Task<IActionResult> PutEmployer(int id, [FromBody] EmployerUpdateDto employerDto)
         {
             var employer = await _context.Employers.FindAsync(id);
@@ -78,6 +83,7 @@ namespace CareerConnect.Controllers
         }
 
         [HttpPost("Create")]
+        [Authorize(Roles = "Admin,Employer")]  // Only Admins and Employers can create new employers
         public async Task<ActionResult<Employer>> PostEmployer(Employer employer)
         {
             employer.CreatedAt = DateTime.Now;
@@ -89,6 +95,7 @@ namespace CareerConnect.Controllers
         }
 
         [HttpDelete("Delete/{id}")]
+        [Authorize(Roles = "Admin")]  // Only Admins can delete employers
         public async Task<IActionResult> DeleteEmployer(int id)
         {
             var employer = await _context.Employers.FindAsync(id);
