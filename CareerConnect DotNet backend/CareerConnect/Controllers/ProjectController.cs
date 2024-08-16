@@ -6,8 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CareerConnect.DTO;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
-using System.Buffers.Text;
 
 namespace CareerConnect.Controllers
 {
@@ -25,41 +23,30 @@ namespace CareerConnect.Controllers
 
         // GET: api/projects/GetAll
         [HttpGet("GetAll")]
-        [Authorize(Roles = "Admin")]  // Only Admins can get all projects
+        [Authorize(Roles = "Admin, JobSeeker")]  // Only Admins can get all projects
         public async Task<ActionResult<IEnumerable<Project>>> GetProjects()
         {
             return await _context.Projects.ToListAsync();
         }
 
-        // GET: api/projects/GetById/{id}
-        [HttpGet("GetById/{id}")]
-        [Authorize(Roles = "Admin,JobSeeker")]  // Admins can view any project, JobSeekers can view their own projects
-        public async Task<ActionResult<Project>> GetProject(int id)
-        {
-            var project = await _context.Projects.FindAsync(id);
-
-            if (project == null)
-            {
-                return NotFound();
-            }
-
-            // Check if the current user is allowed to access this project
-            var currentUser = User.Identity.Name; // Assuming the username is stored in the Name claim
-            if (User.IsInRole("JobSeeker") && project.JobSeeker.User.Email != currentUser)
-            {
-                return Forbid(); // Forbid access if the job seeker is trying to access another user's project
-            }
-
-            return project;
-        }
-
+        // GET: api/projects/GetByJobSeeker/{jobSeekerId}
         // GET: api/projects/GetByJobSeeker/{jobSeekerId}
         [HttpGet("GetByJobSeeker/{jobSeekerId}")]
-        [Authorize(Roles = "Admin,JobSeeker")]  // Admins can view any job seeker's projects, JobSeekers can view their own projects
-        public async Task<ActionResult<IEnumerable<Project>>> GetProjectsByJobSeekerId(int jobSeekerId)
+        [Authorize(Roles = "Admin,JobSeeker")]  // Admins and JobSeekers can view projects
+        public async Task<ActionResult<IEnumerable<ProjectDto>>> GetProjectsByJobSeekerId(int jobSeekerId)
         {
             var projects = await _context.Projects
                 .Where(p => p.JobSeekerId == jobSeekerId)
+                .Select(p => new ProjectDto
+                {
+                    ProjectId = p.ProjectId,
+                    ProjectName = p.ProjectName,
+                    Description = p.Description, // Include the Description
+                    Technologies = p.Technologies, // Include the Technologies
+                    StartDate = p.StartDate,
+                    EndDate = p.EndDate,
+                    JobSeekerId = p.JobSeekerId
+                })
                 .ToListAsync();
 
             if (projects == null || !projects.Any())
@@ -67,19 +54,13 @@ namespace CareerConnect.Controllers
                 return NotFound();
             }
 
-            // Check if the current user is allowed to access these projects
-            var currentUser = User.Identity.Name;
-            var jobSeeker = await _context.JobSeekers.FindAsync(jobSeekerId);
-            if (User.IsInRole("JobSeeker") && jobSeeker.User.Email != currentUser)
-            {
-                return Forbid(); // Forbid access if the job seeker is trying to access another user's projects
-            }
-
             return Ok(projects);
         }
 
+
         // POST: api/projects/Create
         [HttpPost]
+        [Authorize(Roles = "JobSeeker")]  // Only JobSeekers can create their own projects
         public IActionResult CreateProject([FromBody] ProjectDto projectDto)
         {
             if (ModelState.IsValid)
@@ -105,11 +86,10 @@ namespace CareerConnect.Controllers
             return BadRequest(ModelState);
         }
 
-
         // PUT: api/projects/Update/{id}
         [HttpPut("Update/{id}")]
         [Authorize(Roles = "JobSeeker")]  // Only JobSeekers can update their own projects
-        public async Task<IActionResult> UpdateProject(int id, Project project)
+        public async Task<IActionResult> UpdateProject(int id, ProjectDto project)
         {
             if (id != project.ProjectId)
             {
@@ -119,11 +99,13 @@ namespace CareerConnect.Controllers
             // Ensure the current user is the owner of the project they are updating
             var currentUser = User.Identity.Name;
             var existingProject = await _context.Projects.FindAsync(id);
-            if (existingProject.JobSeeker.User.Email != currentUser)
-            {
-                return Forbid(); // Forbid access if the job seeker is trying to update another user's project
-            }
+            //if (existingProject.JobSeeker.User.Email != currentUser)
+            //{
+            //    return Forbid(); // Forbid access if the JobSeeker is trying to update another user's project
+            //}
 
+            // Update the project
+            _context.Entry(existingProject).CurrentValues.SetValues(project);
             _context.Entry(existingProject).State = EntityState.Modified;
 
             try
@@ -160,7 +142,7 @@ namespace CareerConnect.Controllers
             var currentUser = User.Identity.Name;
             if (User.IsInRole("JobSeeker") && project.JobSeeker.User.Email != currentUser)
             {
-                return Forbid(); // Forbid access if the job seeker is trying to delete another user's project
+                return Forbid(); // Forbid access if the JobSeeker is trying to delete another user's project
             }
 
             _context.Projects.Remove(project);
