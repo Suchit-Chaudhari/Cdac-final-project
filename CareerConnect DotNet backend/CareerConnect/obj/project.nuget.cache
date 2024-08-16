@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "YofJJ+25RKY=",
+  "dgSpecHash": "T6mVDPPOiHc=",
   "success": true,
   "projectFilePath": "C:\\Users\\HP\\Desktop\\final project\\Cdac-final-project\\CareerConnect DotNet backend\\CareerConnect\\CareerConnect.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\HP\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",

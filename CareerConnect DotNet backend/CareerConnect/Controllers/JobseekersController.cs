@@ -30,7 +30,7 @@ namespace CareerConnect.Controllers
         }
 
         [HttpGet("GetById/{id}")]
-        [Authorize(Roles = "Admin,JobSeeker")]  // Admins can view any job seeker, JobSeekers can view their own profile
+        [Authorize(Roles = "Admin,JobSeeker,Employer")]  // Admins can view any job seeker, JobSeekers can view their own profile
         public async Task<ActionResult<JobSeeker>> GetJobSeeker(int id)
         {
             var jobSeeker = await _context.JobSeekers.FindAsync(id);

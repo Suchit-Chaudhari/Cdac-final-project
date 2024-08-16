@@ -1042,3 +1042,4 @@ C:\Users\HP\Desktop\final project\Cdac-final-project\CareerConnect DotNet backen
 C:\Users\HP\Desktop\final project\Cdac-final-project\CareerConnect DotNet backend\CareerConnect\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\HP\Desktop\final project\Cdac-final-project\CareerConnect DotNet backend\CareerConnect\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\HP\Desktop\final project\Cdac-final-project\CareerConnect DotNet backend\CareerConnect\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\HP\Desktop\final project\Cdac-final-project\CareerConnect DotNet backend\CareerConnect\bin\Debug\net8.0\BCrypt.Net-Next.dll

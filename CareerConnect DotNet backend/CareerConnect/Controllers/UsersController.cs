@@ -59,10 +59,13 @@ public class UsersController : ControllerBase
             return BadRequest("Invalid data.");
         }
 
+        // Hash the password using BCrypt
+        var hashedPassword = BCrypt.Net.BCrypt.HashPassword(registrationDto.Password);
+
         var user = new User
         {
             Email = registrationDto.Email,
-            Password = registrationDto.Password,
+            Password = hashedPassword,  // Store the hashed password
             Role = registrationDto.Role,
             ProfilePicture = registrationDto.ProfilePicture,  // ProfilePicture can be null
             CreatedAt = DateTime.Now,
@@ -120,7 +123,6 @@ public class UsersController : ControllerBase
         return Ok();
     }
 
-
     // POST: api/users/signin
     [HttpPost("signin")]
     public async Task<IActionResult> SignIn([FromBody] UserLoginDto signInDto)
@@ -134,9 +136,17 @@ public class UsersController : ControllerBase
         var user = await _context.Users
             .Include(u => u.JobSeeker)
             .Include(u => u.Employer)
-            .FirstOrDefaultAsync(u => u.Email == signInDto.Email && u.Password == signInDto.Password);
+            .FirstOrDefaultAsync(u => u.Email == signInDto.Email);
 
         if (user == null)
+        {
+            return Unauthorized("Invalid email or password.");
+        }
+
+        // Verify the password
+        var isPasswordValid = BCrypt.Net.BCrypt.Verify(signInDto.Password, user.Password);
+
+        if (!isPasswordValid)
         {
             return Unauthorized("Invalid email or password.");
         }

@@ -140,16 +140,42 @@ namespace CareerConnect.Controllers
 
             // Ensure the current user is the owner of the project they are deleting
             var currentUser = User.Identity.Name;
-            if (User.IsInRole("JobSeeker") && project.JobSeeker.User.Email != currentUser)
-            {
-                return Forbid(); // Forbid access if the JobSeeker is trying to delete another user's project
-            }
+            //if (User.IsInRole("JobSeeker") && project.JobSeeker.User.Email != currentUser)
+            //{
+            //    return Forbid(); // Forbid access if the JobSeeker is trying to delete another user's project
+            //}
 
             _context.Projects.Remove(project);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
+        [HttpGet("GetByProjectId/{projectId}")]
+        [Authorize(Roles = "Admin,JobSeeker")]  // Admins and JobSeekers can view project details
+        public async Task<ActionResult<ProjectDto>> GetProjectById(int projectId)
+        {
+            var project = await _context.Projects
+                .Where(p => p.ProjectId == projectId)
+                .Select(p => new ProjectDto
+                {
+                    ProjectId = p.ProjectId,
+                    ProjectName = p.ProjectName,
+                    Description = p.Description,
+                    Technologies = p.Technologies,
+                    StartDate = p.StartDate,
+                    EndDate = p.EndDate,
+                    JobSeekerId = p.JobSeekerId
+                })
+                .FirstOrDefaultAsync();
+
+            if (project == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(project);
+        }
+
 
         private bool ProjectExists(int id)
         {

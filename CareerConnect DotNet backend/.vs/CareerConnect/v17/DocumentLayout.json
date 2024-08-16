@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\HP\\Desktop\\final project\\Cdac-final-project\\CareerConnect DotNet backend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{79FBA56F-13CF-454C-A1CA-A73739C4C690}|CareerConnect\\CareerConnect.csproj|c:\\users\\hp\\desktop\\final project\\cdac-final-project\\careerconnect dotnet backend\\careerconnect\\controllers\\jobseekerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79FBA56F-13CF-454C-A1CA-A73739C4C690}|CareerConnect\\CareerConnect.csproj|solutionrelative:careerconnect\\controllers\\jobseekerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79FBA56F-13CF-454C-A1CA-A73739C4C690}|CareerConnect\\CareerConnect.csproj|c:\\users\\hp\\desktop\\final project\\cdac-final-project\\careerconnect dotnet backend\\careerconnect\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79FBA56F-13CF-454C-A1CA-A73739C4C690}|CareerConnect\\CareerConnect.csproj|solutionrelative:careerconnect\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{79FBA56F-13CF-454C-A1CA-A73739C4C690}|CareerConnect\\CareerConnect.csproj|c:\\users\\hp\\desktop\\final project\\cdac-final-project\\careerconnect dotnet backend\\careerconnect\\controllers\\projectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{79FBA56F-13CF-454C-A1CA-A73739C4C690}|CareerConnect\\CareerConnect.csproj|solutionrelative:careerconnect\\controllers\\projectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -33,14 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{79FBA56F-13CF-454C-A1CA-A73739C4C690}|CareerConnect\\CareerConnect.csproj|c:\\users\\hp\\desktop\\final project\\cdac-final-project\\careerconnect dotnet backend\\careerconnect\\dto\\jobcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{79FBA56F-13CF-454C-A1CA-A73739C4C690}|CareerConnect\\CareerConnect.csproj|solutionrelative:careerconnect\\dto\\jobcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79FBA56F-13CF-454C-A1CA-A73739C4C690}|CareerConnect\\CareerConnect.csproj|c:\\users\\hp\\desktop\\final project\\cdac-final-project\\careerconnect dotnet backend\\careerconnect\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{79FBA56F-13CF-454C-A1CA-A73739C4C690}|CareerConnect\\CareerConnect.csproj|solutionrelative:careerconnect\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79FBA56F-13CF-454C-A1CA-A73739C4C690}|CareerConnect\\CareerConnect.csproj|c:\\users\\hp\\desktop\\final project\\cdac-final-project\\careerconnect dotnet backend\\careerconnect\\controllers\\jobseekerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{79FBA56F-13CF-454C-A1CA-A73739C4C690}|CareerConnect\\CareerConnect.csproj|solutionrelative:careerconnect\\controllers\\jobseekerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{79FBA56F-13CF-454C-A1CA-A73739C4C690}|CareerConnect\\CareerConnect.csproj|c:\\users\\hp\\desktop\\final project\\cdac-final-project\\careerconnect dotnet backend\\careerconnect\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -130,7 +130,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -138,46 +138,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 0,
               "Title": "JobseekersController.cs",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\final project\\Cdac-final-project\\CareerConnect DotNet backend\\CareerConnect\\Controllers\\JobseekersController.cs",
               "RelativeDocumentMoniker": "CareerConnect\\Controllers\\JobseekersController.cs",
               "ToolTip": "C:\\Users\\HP\\Desktop\\final project\\Cdac-final-project\\CareerConnect DotNet backend\\CareerConnect\\Controllers\\JobseekersController.cs",
               "RelativeToolTip": "CareerConnect\\Controllers\\JobseekersController.cs",
-              "ViewState": "AQIAACcAAAAAAAAAAAAnwDwAAAAAAAAA",
+              "ViewState": "AQIAABwAAAAAAAAAAAAqwCAAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-06T05:30:39.823Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "ProjectController.cs",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\final project\\Cdac-final-project\\CareerConnect DotNet backend\\CareerConnect\\Controllers\\ProjectController.cs",
               "RelativeDocumentMoniker": "CareerConnect\\Controllers\\ProjectController.cs",
               "ToolTip": "C:\\Users\\HP\\Desktop\\final project\\Cdac-final-project\\CareerConnect DotNet backend\\CareerConnect\\Controllers\\ProjectController.cs",
               "RelativeToolTip": "CareerConnect\\Controllers\\ProjectController.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAQwBwAAAA5AAAA",
+              "ViewState": "AQIAAKgAAAAAAAAAAAAQwKsAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-06T15:30:24.573Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "JobSeekerDto.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\final project\\Cdac-final-project\\CareerConnect DotNet backend\\CareerConnect\\DTO\\JobSeekerDto.cs",
-              "RelativeDocumentMoniker": "CareerConnect\\DTO\\JobSeekerDto.cs",
-              "ToolTip": "C:\\Users\\HP\\Desktop\\final project\\Cdac-final-project\\CareerConnect DotNet backend\\CareerConnect\\DTO\\JobSeekerDto.cs",
-              "RelativeToolTip": "CareerConnect\\DTO\\JobSeekerDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T20:04:27.456Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "ProjectDto.cs",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\final project\\Cdac-final-project\\CareerConnect DotNet backend\\CareerConnect\\DTO\\ProjectDto.cs",
               "RelativeDocumentMoniker": "CareerConnect\\DTO\\ProjectDto.cs",
@@ -190,7 +177,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "JobCreateDto.cs",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\final project\\Cdac-final-project\\CareerConnect DotNet backend\\CareerConnect\\DTO\\JobCreateDto.cs",
               "RelativeDocumentMoniker": "CareerConnect\\DTO\\JobCreateDto.cs",
@@ -203,7 +190,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Project.cs",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\final project\\Cdac-final-project\\CareerConnect DotNet backend\\CareerConnect\\Models\\Project.cs",
               "RelativeDocumentMoniker": "CareerConnect\\Models\\Project.cs",
@@ -216,20 +203,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "JobSeeker.cs",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\final project\\Cdac-final-project\\CareerConnect DotNet backend\\CareerConnect\\Models\\JobSeeker.cs",
               "RelativeDocumentMoniker": "CareerConnect\\Models\\JobSeeker.cs",
               "ToolTip": "C:\\Users\\HP\\Desktop\\final project\\Cdac-final-project\\CareerConnect DotNet backend\\CareerConnect\\Models\\JobSeeker.cs",
               "RelativeToolTip": "CareerConnect\\Models\\JobSeeker.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAswBAAAAAAAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAA7wBAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-02T15:43:32.358Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\final project\\Cdac-final-project\\CareerConnect DotNet backend\\CareerConnect\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "CareerConnect\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\HP\\Desktop\\final project\\Cdac-final-project\\CareerConnect DotNet backend\\CareerConnect\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "CareerConnect\\Controllers\\UsersController.cs",
+              "ViewState": "AQIAAIoAAAAAAAAAAAAwwJAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-02T19:31:56.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "JobSeekerDto.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\final project\\Cdac-final-project\\CareerConnect DotNet backend\\CareerConnect\\DTO\\JobSeekerDto.cs",
+              "RelativeDocumentMoniker": "CareerConnect\\DTO\\JobSeekerDto.cs",
+              "ToolTip": "C:\\Users\\HP\\Desktop\\final project\\Cdac-final-project\\CareerConnect DotNet backend\\CareerConnect\\DTO\\JobSeekerDto.cs",
+              "RelativeToolTip": "CareerConnect\\DTO\\JobSeekerDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-02T20:04:27.456Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\final project\\Cdac-final-project\\CareerConnect DotNet backend\\CareerConnect\\Program.cs",
               "RelativeDocumentMoniker": "CareerConnect\\Program.cs",
@@ -242,7 +255,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "JobPortalContext.cs",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\final project\\Cdac-final-project\\CareerConnect DotNet backend\\CareerConnect\\Data\\JobPortalContext.cs",
               "RelativeDocumentMoniker": "CareerConnect\\Data\\JobPortalContext.cs",
@@ -255,19 +268,6 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "UsersController.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\final project\\Cdac-final-project\\CareerConnect DotNet backend\\CareerConnect\\Controllers\\UsersController.cs",
-              "RelativeDocumentMoniker": "CareerConnect\\Controllers\\UsersController.cs",
-              "ToolTip": "C:\\Users\\HP\\Desktop\\final project\\Cdac-final-project\\CareerConnect DotNet backend\\CareerConnect\\Controllers\\UsersController.cs",
-              "RelativeToolTip": "CareerConnect\\Controllers\\UsersController.cs",
-              "ViewState": "AQIAAPcAAAAAAAAAAAAswAQBAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T19:31:56.876Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 14,
               "Title": "Employer.cs",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\final project\\Cdac-final-project\\CareerConnect DotNet backend\\CareerConnect\\Models\\Employer.cs",
@@ -276,7 +276,8 @@
               "RelativeToolTip": "CareerConnect\\Models\\Employer.cs",
               "ViewState": "AQIAAAEAAAAAAAAAAAAgwAkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T15:43:56.786Z"
+              "WhenOpened": "2024-08-02T15:43:56.786Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -286,9 +287,10 @@
               "RelativeDocumentMoniker": "CareerConnect\\Models\\User.cs",
               "ToolTip": "C:\\Users\\HP\\Desktop\\final project\\Cdac-final-project\\CareerConnect DotNet backend\\CareerConnect\\Models\\User.cs",
               "RelativeToolTip": "CareerConnect\\Models\\User.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAA7wA4AAAAAAAAA",
+              "ViewState": "AQIAAAUAAAAAAAAAAAA0wA4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T15:26:42.913Z"
+              "WhenOpened": "2024-08-02T15:26:42.913Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -300,7 +302,8 @@
               "RelativeToolTip": "CareerConnect\\Controllers\\EmployerController.cs",
               "ViewState": "AQIAACEAAAAAAAAAAAAowF4AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-05T07:32:22.81Z"
+              "WhenOpened": "2024-08-05T07:32:22.81Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -312,7 +315,8 @@
               "RelativeToolTip": "CareerConnect\\Controllers\\JobsController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-05T13:53:28.913Z"
+              "WhenOpened": "2024-08-05T13:53:28.913Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -324,7 +328,8 @@
               "RelativeToolTip": "CareerConnect\\appsettings.json",
               "ViewState": "AQIAAAEAAAAAAAAAAADwvw4AAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-08-02T19:13:50.847Z"
+              "WhenOpened": "2024-08-02T19:13:50.847Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -336,7 +341,8 @@
               "RelativeToolTip": "CareerConnect\\Models\\Application.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T15:44:48.578Z"
+              "WhenOpened": "2024-08-02T15:44:48.578Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -348,7 +354,8 @@
               "RelativeToolTip": "CareerConnect\\Controllers\\ApplicationsController.cs",
               "ViewState": "AQIAAJEAAAAAAAAAAAAIwKkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-03T17:38:23.233Z"
+              "WhenOpened": "2024-08-03T17:38:23.233Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -360,7 +367,8 @@
               "RelativeToolTip": "CareerConnect\\DTO\\UserSignInResponseDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-05T16:58:17.082Z"
+              "WhenOpened": "2024-08-05T16:58:17.082Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -372,7 +380,8 @@
               "RelativeToolTip": "CareerConnect\\DTO\\UserLoginDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-05T16:39:08.066Z"
+              "WhenOpened": "2024-08-05T16:39:08.066Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -382,9 +391,10 @@
               "RelativeDocumentMoniker": "CareerConnect\\Models\\Job.cs",
               "ToolTip": "C:\\Users\\HP\\Desktop\\final project\\Cdac-final-project\\CareerConnect DotNet backend\\CareerConnect\\Models\\Job.cs",
               "RelativeToolTip": "CareerConnect\\Models\\Job.cs",
-              "ViewState": "AQIAAAcAAAAAAAAAAAA4wAkAAAArAAAA",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAxwAkAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T15:44:25.51Z"
+              "WhenOpened": "2024-08-02T15:44:25.51Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -396,7 +406,8 @@
               "RelativeToolTip": "CareerConnect\\Models\\JobFilterModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-05T14:50:24.981Z"
+              "WhenOpened": "2024-08-05T14:50:24.981Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -408,7 +419,8 @@
               "RelativeToolTip": "CareerConnect\\Migrations\\20240814145456_tenthMigration.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-14T14:54:56.676Z"
+              "WhenOpened": "2024-08-14T14:54:56.676Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -420,7 +432,8 @@
               "RelativeToolTip": "CareerConnect\\DTO\\EmployerDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T20:04:56.485Z"
+              "WhenOpened": "2024-08-02T20:04:56.485Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -432,7 +445,8 @@
               "RelativeToolTip": "CareerConnect\\Migrations\\20240806152853_eighthMigration.cs",
               "ViewState": "AQIAAAQAAAAAAAAAAAAIwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-06T15:28:53.918Z"
+              "WhenOpened": "2024-08-06T15:28:53.918Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -444,7 +458,8 @@
               "RelativeToolTip": "CareerConnect\\DTO\\EmployerUpdateDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-11T17:55:12.801Z"
+              "WhenOpened": "2024-08-11T17:55:12.801Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -456,7 +471,8 @@
               "RelativeToolTip": "CareerConnect\\DTO\\UserRegistrationDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T20:03:41.541Z"
+              "WhenOpened": "2024-08-02T20:03:41.541Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -468,7 +484,8 @@
               "RelativeToolTip": "CareerConnect\\Migrations\\20240807064823_ninthMigration.cs",
               "ViewState": "AQIAAAgAAAAAAAAAAAAgwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-07T06:48:24.091Z"
+              "WhenOpened": "2024-08-07T06:48:24.091Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -480,7 +497,8 @@
               "RelativeToolTip": "CareerConnect\\Migrations\\20240803175832_FourthMigration.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-03T17:58:32.378Z"
+              "WhenOpened": "2024-08-03T17:58:32.378Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -492,7 +510,8 @@
               "RelativeToolTip": "CareerConnect\\Migrations\\20240802192710_InitialCreate.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T19:27:10.583Z"
+              "WhenOpened": "2024-08-02T19:27:10.583Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -504,7 +523,8 @@
               "RelativeToolTip": "CareerConnect\\CareerConnect.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-08-02T17:51:44.47Z"
+              "WhenOpened": "2024-08-02T17:51:44.47Z",
+              "EditorCaption": ""
             }
           ]
         }
