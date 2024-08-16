@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Authorization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CareerConnect.DTO;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
+using System.Buffers.Text;
 
 namespace CareerConnect.Controllers
 {
@@ -76,23 +79,32 @@ namespace CareerConnect.Controllers
         }
 
         // POST: api/projects/Create
-        [HttpPost("Create")]
-        [Authorize(Roles = "JobSeeker")]  // Only JobSeekers can create projects for themselves
-        public async Task<ActionResult<Project>> CreateProject(Project project)
+        [HttpPost]
+        public IActionResult CreateProject([FromBody] ProjectDto projectDto)
         {
-            // Ensure the current user is the owner of the project they are creating
-            var currentUser = User.Identity.Name;
-            var jobSeeker = await _context.JobSeekers.FindAsync(project.JobSeekerId);
-            if (jobSeeker.User.Email != currentUser)
+            if (ModelState.IsValid)
             {
-                return Forbid(); // Forbid access if the job seeker is trying to create a project for another user
+                // Map the DTO to the Project entity
+                var project = new Project
+                {
+                    ProjectName = projectDto.ProjectName,
+                    Description = projectDto.Description,
+                    Technologies = projectDto.Technologies,
+                    StartDate = projectDto.StartDate,
+                    EndDate = projectDto.EndDate,
+                    JobSeekerId = projectDto.JobSeekerId
+                };
+
+                // Save the project to the database
+                _context.Projects.Add(project);
+                _context.SaveChanges();
+
+                return Ok(project); // Or return a different response as needed
             }
 
-            _context.Projects.Add(project);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetProject", new { id = project.ProjectId }, project);
+            return BadRequest(ModelState);
         }
+
 
         // PUT: api/projects/Update/{id}
         [HttpPut("Update/{id}")]
